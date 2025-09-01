@@ -13,11 +13,11 @@ public class WaterDropParticle extends TextureSheetParticle {
                                 SpriteSet pSpriteSet, double pXSpeed, double pYSpeed, double pZSpeed) {
         super(pLevel, pX, pY, pZ, pXSpeed, pYSpeed, pZSpeed);
 
-        this.friction = 0.9F; // Ein bisschen Luftwiderstand
-        // KORRIGIERT: Deutlich höhere Schwerkraft für einen realistischen Fall
+        this.friction = 0.9F;
+        // KORRIGIERT: Höhere Schwerkraft
         this.gravity = 0.08F; 
-        this.quadSize *= 0.6F; // Etwas kleiner für einen Tropfen-Look
-        this.lifetime = 60;   // Lebensdauer in Ticks (3 Sekunden)
+        this.quadSize *= 0.6F;
+        this.lifetime = 60;
         this.setSpriteFromAge(pSpriteSet); 
 
         this.xd = pXSpeed;

@@ -7,7 +7,6 @@ import com.modernsprinkler.core.init.ParticleInit;
 import com.modernsprinkler.particle.WaterDropParticleProvider;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.particles.ParticleType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -44,9 +43,9 @@ public class ModernSprinkler {
     private void clientSetup(final FMLClientSetupEvent event) {
     }
 
-    // KORRIGIERT: Der Parameter "modId = MOD_ID" wurde entfernt.
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
+        // KORRIGIERT: Die Methode ist jetzt INNERHALB der Klasse
         @SubscribeEvent
         public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
             Minecraft.getInstance().particleEngine.register(ParticleInit.WATER_DROP.get(), WaterDropParticleProvider::new);
