@@ -1,7 +1,7 @@
 package com.modernsprinkler.block.entity;
 
 import com.modernsprinkler.core.init.BlockEntityInit;
-import com.modernsprinkler.core.init.ParticleInit; // NEUER IMPORT
+import com.modernsprinkler.core.init.ParticleInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
@@ -39,12 +39,11 @@ public class SprinklerHeadBlockEntity extends BlockEntity {
 
         float angleRad = (float) Math.toRadians(angle);
 
-        double speed = 0.4; 
+        double speed = 0.4;
         double motionX = Math.cos(angleRad) * speed;
         double motionZ = Math.sin(angleRad) * speed;
         double motionY = 0.2;
 
-        // GEÄNDERT: Wir benutzen jetzt unseren eigenen, registrierten Partikel-Typ!
         this.level.addParticle(ParticleInit.WATER_DROP.get(), startX, startY, startZ, motionX, motionY, motionZ);
     }
 }

@@ -26,10 +26,11 @@ public class ModernSprinkler {
         ParticleInit.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
-
+        
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        // Hier kommt nur noch Code hin, der auf Server und Client läuft
     }
 }

@@ -8,12 +8,12 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+// KORRIGIERT: Der Parameter "modId = ModernSprinkler.MOD_ID" wurde entfernt.
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientEvents {
 
     @SubscribeEvent
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
-        // Dieser Befehl ist korrekt und ruft unsere (jetzt korrigierte) Fabrik auf
         event.registerSpriteSet(ParticleInit.WATER_DROP.get(), WaterDropParticleProvider::new);
     }
 }
