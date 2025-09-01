@@ -8,12 +8,13 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-// KORRIGIERT: Der Parameter "modId = ModernSprinkler.MOD_ID" wurde entfernt.
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientEvents {
 
     @SubscribeEvent
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
+        // KORRIGIERT: Wir benutzen "event.registerSpriteSet", da unsere Fabrik nun eine SpriteSet erwartet.
+        // Dies ist der robusteste Weg, der auch mit dem Minecraft-Partikel-Manager kompatibel ist.
         event.registerSpriteSet(ParticleInit.WATER_DROP.get(), WaterDropParticleProvider::new);
     }
 }
