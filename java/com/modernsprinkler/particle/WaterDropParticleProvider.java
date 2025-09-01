@@ -3,24 +3,21 @@ package com.modernsprinkler.particle;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
-import net.minecraft.client.particle.SpriteSet; // Behalten wir für die Kompatibilität
+import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
-@OnlyIn(Dist.CLIENT)
-// Wir geben an, dass wir eine SpriteSet für die Kompatibilität akzeptieren
-public class WaterDropParticleProvider implements ParticleProvider.Sprite<SimpleParticleType> {
-    private final SpriteSet sprite;
+// KORRIGIERT: Wir implementieren das Interface direkt und korrekt.
+public class WaterDropParticleProvider implements ParticleProvider<SimpleParticleType> {
+    private final SpriteSet sprites;
 
-    public WaterDropParticleProvider(SpriteSet pSprite) {
-        this.sprite = pSprite;
+    // Der Konstruktor, der die SpriteSet vom Spiel erhält
+    public WaterDropParticleProvider(SpriteSet spriteSet) {
+        this.sprites = spriteSet;
     }
 
-    // Wir übergeben die SpriteSet an unseren Partikel
-    public Particle createParticle(SimpleParticleType pType, ClientLevel pLevel,
-                                   double pX, double pY, double pZ,
-                                   double pXSpeed, double pYSpeed, double pZSpeed) {
-        return new WaterDropParticle(pLevel, pX, pY, pZ, this.sprite, pXSpeed, pYSpeed, pZSpeed);
+    // Diese Methode erstellt den Partikel und übergibt ihm die SpriteSet
+    public Particle createParticle(SimpleParticleType particleType, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) {
+        // Wir erstellen eine neue Instanz unseres Partikels und übergeben die Sprites
+        return new WaterDropParticle(level, x, y, z, this.sprites, dx, dy, dz);
     }
 }
