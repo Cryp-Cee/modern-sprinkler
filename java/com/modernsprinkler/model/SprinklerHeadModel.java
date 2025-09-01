@@ -19,7 +19,7 @@ public class SprinklerHeadModel extends GeoModel<SprinklerHeadBlockEntity> {
 
     @Override
     public ResourceLocation getAnimationResource(SprinklerHeadBlockEntity animatable) {
-        // KORRIGIERT: Wir verweisen jetzt auf den korrekten Dateinamen.
+        // DIES IST DER KORREKTE CODE, DER DORT STEHEN SOLLTE:
         return new ResourceLocation(ModernSprinkler.MOD_ID, "animations/sprinkler_head.animation.json");
     }
 }
