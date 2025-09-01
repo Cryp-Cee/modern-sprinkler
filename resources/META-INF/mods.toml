@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="[47,)" # Für Minecraft 1.20.1
+license="GNU GPL 3.0"
+
+[[mods]]
+modId="modern_sprinkler"
+version="1.0.0"
+displayName="Modern Sprinkler"
+description='''A mod that adds modern sprinklers to the game.'''
+
+[[dependencies.modern_sprinkler]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.modern_sprinkler]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.20.2)"
+ordering="NONE"
+side="BOTH"
