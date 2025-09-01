@@ -4,16 +4,10 @@ import com.modernsprinkler.core.init.BlockEntityInit;
 import com.modernsprinkler.core.init.BlockInit;
 import com.modernsprinkler.core.init.ItemInit;
 import com.modernsprinkler.core.init.ParticleInit;
-import com.modernsprinkler.particle.WaterDropParticleProvider;
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -32,23 +26,10 @@ public class ModernSprinkler {
         ParticleInit.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(this::clientSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-    }
-    
-    private void clientSetup(final FMLClientSetupEvent event) {
-    }
-
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents {
-        // KORRIGIERT: Die Methode ist jetzt INNERHALB der Klasse
-        @SubscribeEvent
-        public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
-            Minecraft.getInstance().particleEngine.register(ParticleInit.WATER_DROP.get(), WaterDropParticleProvider::new);
-        }
     }
 }
