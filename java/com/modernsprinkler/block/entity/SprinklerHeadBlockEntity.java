@@ -1,49 +1,44 @@
 package com.modernsprinkler.block.entity;
 
 import com.modernsprinkler.core.init.BlockEntityInit;
-import com.modernsprinkler.core.init.ParticleInit;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import software.bernie.geckolib.animatable.GeoBlockEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class SprinklerHeadBlockEntity extends BlockEntity {
-    private float rotation = 0.0f;
-    private final RandomSource random = RandomSource.create();
+// WICHTIG: Wir implementieren jetzt GeoBlockEntity
+public class SprinklerHeadBlockEntity extends BlockEntity implements GeoBlockEntity {
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+
+    // Wir definieren eine sichere, wiederverwendbare Animations-Referenz
+    private static final RawAnimation ROTATE_ANIM = RawAnimation.begin().thenLoop("animation.sprinkler.rotate");
 
     public SprinklerHeadBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityInit.SPRINKLER_HEAD_BLOCK_ENTITY.get(), pPos, pBlockState);
     }
 
-    public static void tick(Level pLevel, BlockPos pPos, BlockState pState, SprinklerHeadBlockEntity pBlockEntity) {
-        if (pLevel.isClientSide()) {
-            pBlockEntity.updateRotationAndSpawnParticles();
-        }
+    // Diese Methode registriert unsere Animationen
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "controller", 0, this::predicate));
     }
 
-    private void updateRotationAndSpawnParticles() {
-        if (this.level == null) return;
-
-        this.rotation += 15.0f;
-        if (this.rotation >= 360.0f) {
-            this.rotation -= 360.0f;
-        }
-        spawnParticle(this.rotation);
+    // Diese Methode steuert, wann welche Animation abgespielt wird
+    private PlayState predicate(AnimationState<SprinklerHeadBlockEntity> event) {
+        // Wir spielen unsere "rotate"-Animation in einer Endlosschleife ab
+        event.getController().setAnimation(ROTATE_ANIM);
+        return PlayState.CONTINUE;
     }
 
-    private void spawnParticle(float angle) {
-        double startX = this.worldPosition.getX() + 0.5;
-        double startY = this.worldPosition.getY() + 0.8;
-        double startZ = this.worldPosition.getZ() + 0.5;
-
-        float angleRad = (float) Math.toRadians(angle);
-
-        double speed = 0.4;
-        double motionX = Math.cos(angleRad) * speed;
-        double motionZ = Math.sin(angleRad) * speed;
-        double motionY = 0.2;
-
-        this.level.addParticle(ParticleInit.WATER_DROP.get(), startX, startY, startZ, motionX, motionY, motionZ);
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
     }
 }
