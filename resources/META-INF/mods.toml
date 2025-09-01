@@ -6,7 +6,7 @@ license="GNU GPL 3.0"
 modId="modern_sprinkler"
 version="1.0.0"
 displayName="Modern Sprinkler"
-description='''A mod that adds modern sprinklers to the game.'''
+description="Irrigate the fields or prevent them from drying out."
 
 [[dependencies.modern_sprinkler]]
 modId="forge"
@@ -18,6 +18,6 @@ side="BOTH"
 [[dependencies.modern_sprinkler]]
 modId="minecraft"
 mandatory=true
-versionRange="[1.20.1,1.20.2)"
+versionRange="[1.20.1]"
 ordering="NONE"
 side="BOTH"
