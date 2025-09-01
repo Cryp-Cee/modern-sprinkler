@@ -1,6 +1,6 @@
 {
   "pack": {
-    "description": "modern_sprinkler resources",
-    "pack_format": 15
+    "pack_format": 15,
+    "description": "Resources for Modern Sprinkler"
   }
 }
