@@ -1,0 +1,37 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="GNU GPL 3.0"
+
+[[mods]]
+modId="modern_sprinkler"
+version="0.1"
+displayName="Modern Sprinkler"
+description="Irrigate the fields or prevent them from drying out."
+
+[[dependencies.modern_sprinkler]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.6,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.modern_sprinkler]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.modern_sprinkler]]
+modId="geckolib"
+mandatory=true
+versionRange="[4.7.4,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.modern_sprinkler]]
+modId="architectury"
+mandatory=true
+versionRange="[9.2.14,)"
+ordering="AFTER"
+side="BOTH"
