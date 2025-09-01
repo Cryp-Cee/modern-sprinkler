@@ -1,8 +1,0 @@
-{
-  "textures": [
-    "modern_sprinkler:particle/water_drop"
-  ],
-  "resource_pack": {
-    "atlas_path": "textures/atlas/particles.png"
-  }
-}

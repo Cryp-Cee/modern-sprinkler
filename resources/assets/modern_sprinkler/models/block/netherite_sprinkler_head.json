@@ -1,7 +1,0 @@
-{
-  "parent": "modern_sprinkler:block/sprinkler_head_base",
-  "textures": {
-    "top": "modern_sprinkler:block/netherite_sprinkler_head_top",
-    "side": "modern_sprinkler:block/netherite_sprinkler_head_side"
-  }
-}
