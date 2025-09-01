@@ -1,7 +1,6 @@
 {
-  "parent": "modern_sprinkler:block/sprinkler_head_base",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "top": "modern_sprinkler:block/iron_sprinkler_head_top",
-    "side": "modern_sprinkler:block/iron_sprinkler_head_side"
+    "all": "modern_sprinkler:block/iron_sprinkler_head_side"
   }
 }
