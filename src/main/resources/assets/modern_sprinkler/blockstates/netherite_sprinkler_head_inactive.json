@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "modern_sprinkler:block/empty" },
+    "facing=south": { "model": "modern_sprinkler:block/empty" },
+    "facing=west":  { "model": "modern_sprinkler:block/empty" },
+    "facing=east":  { "model": "modern_sprinkler:block/empty" }
+  }
+}

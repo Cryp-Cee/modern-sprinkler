@@ -1,0 +1,19 @@
+{
+  "item.modern_sprinkler.water_sprinkler_core": "Water Sprinkler Core",
+  "block.modern_sprinkler.sprinkler_bottom": "Sprinkler Pump",
+
+  "block.modern_sprinkler.iron_sprinkler_head_inactive": "Iron Sprinkler Head",
+  "block.modern_sprinkler.iron_sprinkler_head_active": "Iron Sprinkler Head",
+
+  "block.modern_sprinkler.gold_sprinkler_head_inactive": "Golden Sprinkler Head",
+  "block.modern_sprinkler.gold_sprinkler_head_active": "Golden Sprinkler Head",
+
+  "block.modern_sprinkler.diamond_sprinkler_head_inactive": "Diamond Sprinkler Head",
+  "block.modern_sprinkler.diamond_sprinkler_head_active": "Diamond Sprinkler Head",
+
+  "block.modern_sprinkler.netherite_sprinkler_head_inactive": "Netherite Sprinkler Head",
+  "block.modern_sprinkler.netherite_sprinkler_head_active": "Netherite Sprinkler Head",
+
+  "tooltip.modern_sprinkler.requires_core": "Requires a Sprinkler Core to operate.",
+  "tooltip.modern_sprinkler.radius": "Irrigation Radius: %s"
+}
